@@ -8,7 +8,7 @@ import "./IERC721Metadata.sol";
 import "./IERC721Enumerable.sol";
 import "./IERC721Receiver.sol";
 import "../../introspection/ERC165.sol";
-import "../../math/SafeMath.sol";
+import "../../utils/SafeMath.sol";
 import "../../utils/Address.sol";
 import "../../utils/EnumerableSet.sol";
 import "../../utils/EnumerableMap.sol";
