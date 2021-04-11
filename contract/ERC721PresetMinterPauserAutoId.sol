@@ -22,7 +22,7 @@ import "../token/ERC721/ERC721Burnable.sol";
  * roles, as well as the default admin role, which will let it grant both minter
  * and pauser roles to other accounts.
  */
-contract ERC721PresetMinterPauserAutoId is Context, AccessControl, ERC721Burnable, ERC721Pausable {
+contract ERC721PresetMinterPauserAutoId is Context, AccessControl, ERC721Burnable {
     using Counters for Counters.Counter;
 
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
@@ -66,7 +66,7 @@ contract ERC721PresetMinterPauserAutoId is Context, AccessControl, ERC721Burnabl
         _tokenIdTracker.increment();
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override(ERC721, ERC721Pausable) {
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override(ERC721) {
         super._beforeTokenTransfer(from, to, tokenId);
     }
 }
