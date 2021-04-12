@@ -185,9 +185,6 @@ abstract contract AccessControl is Context {
      * system imposed by {AccessControl}.
      * ====
      */
-    function _setupRole(bytes32 role, address account) internal virtual {
-        _grantRole(role, account);
-    }
 
     /**
      * @dev Sets `adminRole` as ``role``'s admin role.
@@ -197,12 +194,6 @@ abstract contract AccessControl is Context {
     function _setRoleAdmin(bytes32 role, bytes32 adminRole) internal virtual {
         emit RoleAdminChanged(role, _roles[role].adminRole, adminRole);
         _roles[role].adminRole = adminRole;
-    }
-
-    function _grantRole(bytes32 role, address account) private {
-        if (_roles[role].members.add(account)) {
-            emit RoleGranted(role, account, _msgSender());
-        }
     }
 
     function _revokeRole(bytes32 role, address account) private {
